@@ -1,0 +1,89 @@
+Introduction:
+-------------
+1. Java Histroy
+2. Difference between Java and Others[c,c++]
+3. Java Features
+4. Java Naming Conventions
+5. Java Programming Format
+
+1. Java History:
+----------------
+Sun Microsystems (upto 1.6)
+Oracle (From 1.7)
+Java officially release in 1995 
+1st version is introduced 1996, JAN-23rd
+
+In 1991 , Sun Microsystems had a requirement to prepare a new programming language inorder to prepare
+softwares for simple electronic consumer devices like cable tv switch boxes , remote controllers,...
+
+30 members Team led by James Gousling and Patrick Naughtan.
+
+GREEN PROJECT
+   ----> PL ---> 1. Simple 
+                 2. Tight Coded
+		 3. Arch Nuetral
+a) Simple:
+----------
+1. Less Execution Time      ---> More Performance
+2. Less Memory Consumption  ---> Less cost for the end product
+3. Less Power Consumption   ---> Less Maintainence Cost
+
+
+b) Tight Coded:
+---------------
+In C : 
+Stack ---> 1. PUSH ----> 20 LOC
+           2. POP  ----> 20 LOC
+	   3. PEEK ----> 20 LOC
+---------------------------------
+              Total ---> 60 LOC
+In Java:
+Stack s = new Stack();
+s.push("AAA");
+s.pop();
+s.peek();
+-------------------------
+Total ---> 4 LOC
+
+
+c) Arch Nuetral:
+----------------
+It must execute its applications on all the H/W Systems
+
+
+2. Differences between java and others[C, C++]
+-----------------------------------------------
+a) C and C++ are static Programming Langauge, but, Java is a dynamic Programming Language:
+------------------------------------------------------------------------------------------
+If any PL allows memory allocation for primitive data types at compilation time
+then that PL is called as Static programming language.
+EX: C and C++.
+
+If any PL allows memory allocation for primitive data types at Runtime then that PL is 
+called as Dynamic PL.
+EX: JAVA
+
+primitive data types:
+---------------------
+byte
+short
+int
+long
+float
+double
+char
+boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,802 @@
+Language Fundamentals
+---------------------
+1) Identifiers
+2) Reserved words
+3) Data Types
+4) Literals
+5) Arrays
+6) Types of variables
+7) var-arg methods
+8) main method
+9) command line arguments
+10) Java coding standard
+-----------------------------------------------
+
+Identifiers
+-----------
+1) A name in java program is by default consider as Identifiers
+   which can be used for Identification purpose it can be method name,
+   variable name , class name , label name.
+
+Rules for Defining Java Identifiers:
+------------------------------------
+1) The only allowed characters in java identifiers are:
+1) a to z
+2) A to Z
+3) 0 to 9
+4) $
+5) _ (underscore)
+
+2) If you are using any other character you will get error
+
+total_number (valid)
+total# (Invalid)
+
+3) Identifiers can't starts with digits 
+
+total123 (valid)
+123total (Invalid)
+
+4) Java Identifiers are casesensitive. Java Language itself treated as casesensitive programming language.
+
+class Test
+{
+int number = 10;
+int Number = 20;
+int NUMBER = 30;
+}
+we can differentiate with respect to case.
+
+5) There is no length limit for java identifiers, but , it is not recommended to take
+   to lengthy identifiers
+
+6) we cannot use reserved words as identifiers.
+ int x = 10; (valid)
+ int if = 20; (Invalid)
+
+7) All predefined java class names and interface names we can use as Identifiers.
+
+class Test 
+{
+public static void main(String[] args)
+{
+int String = 999;
+System.out.println(String);
+int Runnable = 888;
+System.out.println(Runnable);
+}
+}
+even though it is valid but it is not a good programming practice because it reduce readability 
+and creates confusion.
+
+
+Q1) Which of the following are valid java Identifiers?
+    
+    total_number --> (Valid Identifier) 
+    total#   ----->(Invalid Identifier)   
+    123total ------>(Invalid Identifier)
+    total123  ---->(Valid Identifier)
+    ca$h   ------->(Valid Identifier)
+    _$_$_$_$_   --->(Valid Identifier)
+    all@hands ----->(Invalid Identifier)
+    Java2share ---->(Valid Identifier)
+    Integer  ------>(Valid Identifier)
+    Int   ---------> (Valid Identifier)
+    int   ---------->(InValid Identifier)
+
+Reserved Words --> 53 words
+---------------------------
+In Java Some words are Reserved to represent some meaning or functionality
+such type of words are called reserved words.
+
+Reserved Literals(3):
+---------------------
+1) true
+2) false
+3) null
+
+Keywords (50):
+--------------
+used keywords (48)
+------------------
+if , else .....
+
+unused Keywords (2)
+-------------------
+goto , const 
+
+
+Keywords for Data Types (8)
+---------------------------
+byte 
+short
+int
+long
+float 
+double
+boolean
+char
+Keywords for flow Control (11)
+------------------------------
+if
+else
+switch
+case
+default
+while
+do
+for
+break
+continue
+return
+Keywords for Modifiers (11)
+----------------------------
+public
+private
+protected
+static
+final
+abstract
+synchronized
+native
+strictfp
+transient
+volatile
+Keywords for Exception Handling (6)
+-----------------------------------
+try
+catch
+finally
+throw
+throws
+assert
+Class related Keywords (6)
+--------------------------
+class
+interface
+extends
+implements
+package
+import
+Object related Keywords (4)
+---------------------------
+new
+instanceof
+super
+this
+
+In java return type is mandatory if a method cannot return anything then we have to declare that 
+method with void return type.
+
+but, In c language return type is optional and default return type is 'int'
+
+unused Keywords:
+----------------
+goto : usage of goto created serval problems in old languages and hence sun people band this keyword in java
+
+const : use final instead of const 
+
+Note: goto , const are unused keywords and if we are trying to use we will get compile time error.
+
+
+Reserved Literals:
+------------------
+true , false values for boolean data types.
+
+null default value for object reference
+
+enum Keyword (1.5v):
+--------------------
+we can use enum to define a group of named constants
+
+enum month
+{
+JAN,FEB,...,DEC;
+}
+
+enum week
+{
+MON,TUE,....,SUN;
+}
+
+Conclusions:
+------------
+1) All 53 reserved words in java contains only lowercase alphabets symbols.
+2) In Java we have only new keyword and there is no delete keyword because 
+destruction of useless objects is responsibility of garbage collector.
+3) the following are new keywords in java : strictfp(1.3v) , assert(1.4v) , enum(1.5v)
+4) strictfp butnot strictFp
+5) instanceof butnot instanceOf
+6) synchronized butnot synchronize
+7) extends butnot extend
+8) implements butnot implement
+9) import butnot imports
+10) const butnot constant
+
+Data Types in Java:
+-------------------
+1) In Java every variable and every expression has some type each and every data type is clearly defined 
+every assignment should be checked by compiler for type compactability.
+
+Because of above reasons we can conclude java language is strongly typed programming language.
+
+2) Java is not considered as pure object oriented programing language because serval oop features are not 
+satisfied by java like operator overloading , multiple inheritance etc...
+more over depending on primitive data types which are non-objects.
+
+3) Primitive Data Types : 1) Numeric Data Types 2) Non-numeric Data Types
+
+4) Numeric Data Types : Integral Data Types --> byte , short , int , long 
+Floating Point Data types--> float , double
+
+5) Non-Numeric Data types : char , boolean
+
+6) Except boolen and char remaining data types are considered as signed data types because we can represent both positive and negative numbers.
+
+byte: 1 byte (8 bits)
+---------------------
+Byte size 1 byte or 8 bits 
+sign bit 
+---------
+0 --> +ve positive numbers will be represented directly in the memory
+1 --> -ve negative numbers will be represented in 2's compilement form.
+
+MAX_VALUE : +127
+MIN_VALUE : -128
+
+Range : -128 to +127
+
+byte b = 10;  (Valid)
+byte b = 127; (Valid)
+
+byte b = 128; (InValid) 
+CE: Possible loss of pracition
+Found : int
+required : byte
+
+byte b = 10.5; 
+CE: possible loss of pracition
+Found : double
+required : byte
+
+byte b = true;
+ CE: incompactible types
+ found : boolean
+ required : byte
+byte b = "durga";
+ CE: incompatible types
+ found : java.lang.String
+ required : byte
+
+Note: Byte is the best choice if we want to handle data interms of streams 
+either from the file or network (file supported form or network supported form is byte).
+
+SHORT DATA TYPE: 2 bytes (16 bits) (MOST RARELY USED DATA TYPE)
+---------------------------------------------------------------
+range -2^15 to 2^15-1 [-32768 to 32767]
+1) This is the most rarely used data type in java.
+
+short s = 32767; (VALID)
+short s = 32768; (INVALID) 
+CE : PLP
+found : int
+required : short
+
+short s = 10.5; (INVALID)
+CE: PLP 
+found : double
+required : short
+
+short s = true; (INVALID)
+CE: Incompatible types
+found : boolean
+required : short
+
+Note: Short Data type is best sutiable for 16bit process like 8085 but process are completely
+out dated and hence corresponding short data type is also out dated
+
+int Data Type: 4bytes (32 bits) (most commonly used data type)
+---------------------------------------------------------------
+
+range: -2^31 to 2^31 - 1
+[-2147483648 to 2147483647]
+
+1) The most commonly used data in java is int. size 4 bytes (32 bits).
+
+int x = 2147483647; VALID
+int x = 2147483648; INVALID
+CE: integer number too large
+
+int x = 2147483648L;
+CE: Possible loss of precision (PLP)
+found : long
+required : int
+
+int x = true;
+CE: incompatible types
+found: boolean
+required : int
+
+long data type:
+---------------
+1) sometimes int may not enough to hold big values then we should go for long type
+
+Example 1: The amount distance travelled by light in 1000 days, to hold this value int may not enough 
+           we should go for long data type.
+	   
+	   long l = 126000*60*60*24*1000L;
+
+Example 2: The number of character present in a big file may exceed int range enhance the 
+           return type of length() method is long but not int.
+	    
+	   long l = f.length()
+Size: 8 bytes (64bits)
+
+Range : -2^63 to 2^63-1
+
+Note: all the above data types(byte ,short , int , long) meant for representing integral values
+      if we want to represent floating point values then we should go for floating point data types.
+    
+Floating-Point Data Types
+-------------------------
+1) if we want 5 to 6 decimal point accuracy
+2) float follows single precision
+3) Size : 4 bytes
+4) Range : -3.4e38 to 3.4e38
+
+Double Data Type:
+-----------------
+1) if we want 14 to 15 decimal point accuracy 
+2) double follows double precision
+3) Size : 8 bytes
+4) Range : -1.47e308 to 1.47e308
+
+Boolean Data Type: [ true / false ]
+-----------------------------------
+Size : N.A [Virtual Machine dependent]
+
+Range : N.A [But allowed values are : true | false ]
+
+boolean bo = true; VALID
+boolean bo = 0; INVALID ----> CE: incompatible types
+                              Found: int 
+			      required : boolean
+boolean bo = True; INVALID ---> CE: cannot find symbol
+                                symbol : variable True
+                                location : class Test
+boolean bo = "True"; INVALID ---> CE: incompatible types
+                                  Found: java.lang.String
+				  required: boolean
+
+Example:1
+---------
+int x = 0;
+if (x)
+{
+System.out.println("Hello");
+}
+else
+{
+System.out.println("Hi");
+}
+CE: incompatible type
+Found : int
+required: boolean
+
+Example:2
+---------
+while(1)
+{
+System.out.println("Hello");
+}
+
+CE: incompatible type
+Found : int
+required : boolean
+
+char Data Type:
+---------------
+Size : 2 bytes
+Range : 0 to 65535
+Java is Unicode Based
+
+1) Old Languages (like c,c++) are ascii code based and the number of allowed different 
+   ascii characters are less then or equal to 256 to repr these 256 characters 8 bits are enough 
+   hance the size of char in old languages is 1 byte
+
+2) Java is unicode based and the number of different unicode characters are greater then 256 and less then
+   or equal to 65536 to repr these many characters 8bits may not enough compulsary we should go for 16 bits
+   hence the size of char in java is 2 bytes
+
+Summary of Java Primitive data types:
+-------------------------------------
+Data_type        Size            Wrapper_class      default_value
+   byte         1 byte             Byte                 0
+   short        2 bytes            Short                0
+   int          4 bytes            Integer              0
+   long         8 bytes            Long                 0
+   float        4 bytes            Float                0.0
+   double       8 bytes            Double               0.0
+   boolean      N.A                Boolean              false
+   char         2 bytes            Character            0 [ represents space character]
+
+null
+----
+1) it is default value for string type,object type only
+Note : null is default value for object reference and cannot apply for primitives 
+       if we are trying to use for primitives then we will get compiletime error
+Example: 
+char ch = null;
+CE: incompatible types
+Found: <nulltype>
+required: char
+
+
+Literals:
+---------
+
+1) A constant value which can be asigned to the variable is called literal
+Example:
+--------
+int x = 10;
+
+int ----> data type | keyword
+x   ----> name of variable | identifier
+10  ----> constant value | literal
+
+2) integral literals: for integral data types (byte ,short , int , long) we can specify 
+   literal value in the following ways:
+
+a) decimal literals: (base-10)
+    int x = 10; (decimal form)
+b) octal form : (base-8) (0-7)
+    int x = 010; (octal form)
+c) Hexa decimal form: (base-16) (0-9 A-F a-f)
+    int x = 0X10; (hexa decimal form)
+1) Which of the following declarations are valid in Java?
+int x = 10; VALID
+int x = 0786; INVALID
+int x = 0777; VALID
+int x = 0XFace; VALID
+int x = 0XBeef; VALID
+int x = 0XBeer; INVALID
+
+EXAMPLE:
+--------
+class Test 
+{
+public static void main(String[] args)
+{
+int x = 10;
+int y = 010;
+int z = 0x10;
+System.out.println(x+"..."+y+"..."+z);
+}
+}
+
+OP:
+---
+10...8...16
+
+
+1) 10(decimal) , 010(octal) , 0x10 (hexa) it is 'int type'.
+2) 10L , 010L , 0x10L it in 'long type'.
+ 
+int x = 10; valid
+
+long l = 10L; valid
+
+int x = 10L; invalid   
+
+CE: possible loss precision
+Found: long
+required:int
+
+long l = 10; valid
+
+
+
+3) There is no direct way to specify byte and short literals explicitly but indirectly we can specify
+   when we are asigning integral literal to the byte and if the value within the range of byte then compiler 
+   treats it automatically as byte literal similarly short literal also.
+
+byte b = 10; valid
+
+byte b = 127; valid
+
+byte b = 128; invalid
+CE: Possible loss of precission
+Found: int
+required : byte
+
+short s = 32767; valid
+short s = 32768; 
+CE: possible loss of precision
+Found : int
+required: short
+
+Floating point literals: (123.456)
+----------------------------------
+
+1) By default every floating point literal is of double type and hence we can't asign directly to the
+   float variable but we can specify floating point literal as float type by suffixed with small f or capital F
+
+float f = 123.456; invalid
+CE: possible loss of precision
+Found: double
+required : float
+
+float f = 123.456F; valid
+
+double d = 123.456; valid
+
+2) we can specify explicitly floating point literal as double type by suffixed with 'd' or 'D' of course this 
+   convention is not required.
+ 
+double d = 123.456D; valid (suffixed with 'd' or 'D')
+
+float f = 123.456d; invalid 
+CE: PLP
+Found: double
+required: float
+
+3) we can specify floating point literals only in decimal form and we can't specify in octal , hexadecimal forms
+
+
+double d = 123.456; valid
+
+double d = 0123.456; valid (this returned 123.456)
+
+double d = 0X123.456; invalid
+CE: malformed floating point literal
+
+4) we asign integral literal directly to floating point variables and that integral literal 
+   can be specified either in decimal , octal , hexa-decimal forms
+
+
+double d = 0786; invalid
+CE: integer number too large
+
+double d = 0XFace; valid
+
+double d = 10; valid
+System.out.println(d); // 10.0
+
+double d = 0786.0; valid (Answer: 786.0)
+
+double d = 0xFace.0 invalid
+CE: malformed floating point literal
+
+double d = 10; valid // 10.0
+
+double d = 0777; valid
+
+
+5) we can't asign floating point literals to integral types 
+
+double d = 10; valid
+
+int x = 10.0; invalid
+CE: PLP
+Found : double
+required : int
+
+6) we can specify floating point literal even in exponential form (scientific notation)
+
+double d = 1.2e3; valid
+System.out.println(d); // 1200.0
+
+float f = 1.2e3; invalid
+CE: PLP
+Found : double
+required : float
+
+float f = 1.2e3F; valid
+
+Literals of Boolean Data type: [true | false]
+------------------------------
+only allowed values of boolean data type are true or false
+
+boolean b = true; valid
+
+boolean b = 0; invalid
+CE: in-compatible types
+Found: int
+required: boolean
+
+boolean b = True; invalid
+CE: cannot find symbol
+symbol : variable True
+location: class Test
+
+boolean b = "true"; invalid
+CE: incompatible types
+found: java.lang.String
+required: boolean
+
+
+Example:1
+---------
+int x = 0;
+if(x)
+{
+System.out.println("Hello");
+}
+else
+{
+System.out.println("Hi");
+}
+
+CE: incompatible type
+found: int
+required: boolean
+
+Example:2
+---------
+while(1)
+{
+System.out.println("Hello");
+}
+
+CE: incompatible type
+found: int
+required: boolean
+
+
+
+
+char literal type:
+------------------
+1) we can specify char literal has single character within single quotes
+
+char ch = 'a'; valid
+
+char ch = a; invalid 
+CE: cannot find symbol
+symbol : variable a 
+location : class Test
+
+char ch = "a": invalid
+
+CE: incompatible types
+found: java.lang.string
+required: char
+
+char ch = 'ab'; invalid
+
+CE1: unclosed char literal
+CE2: unclosed char literal
+CE3: not a statement
+
+2) we can specify char literal as integral literal which represents unicode value of the character and that integral literal can be specified 
+either in decimal or octal or hexa decimal forms but allowed range is 0 to 65535
+
+Example:
+char ch = 97; valid
+System.out.println(ch); // 'a'
+
+char ch = 0XFace; valid // hexa-decimal
+ 
+char ch = 0777;  valid // octal form
+
+char ch = 65535; valid 
+
+char ch = 65536; invalid
+CE: PLP 
+Found : int
+required : char
+
+3) we can represent char literal in unicode representation which is nothing but '\uxxxx'
+xxxx 4-digit hexa-decimal number
+
+char ch = '\u0061';
+
+System.out.println(ch); // 'a'
+
+char ch = '\u0062';
+
+System.out.println(ch); // 'b'
+
+4) Every escape character is a valid char literal 
+
+char ch = '\n'; valid
+char ch = '\t'; valid
+char ch = '\m'; invalid CE: illegal escape character
+
+Escape_Character    Description
+----------------------------------
+\n                   new line
+\t                   horizontal tab
+\r                   carriage return
+\b                   backspace character
+\f                   form Feed
+\'                   single quote
+\"                   double quote
+\\                   back slash
+
+System.out.println("This is \' symbol");
+System.out.println("This is \" symbol");
+System.out.println("This is \\ character");
+file i/o concept: file.write("C:\\durga-classes");
+
+Q) Which of the following are valid char literals ?
+
+char ch = 65536; invalid
+
+char ch = 0XBeer; invalid
+
+char ch = \uface; invalid
+
+char ch = '\ubeef'; valid
+
+char ch = '\m'; invalid
+
+char ch = '\iface'; invalid
+
+
+String literal type:
+--------------------
+1) Any sequences of characters within double quotes is treated as string literal.
+
+String s = "durga" ;
+
+1.7 version enhancement with respect to literals
+------------------------------------------------
+1) Binary Literals:
+-------------------
+For integral data types until 1.6 version we can specify literal value in the following ways decimal form ,octal form,
+hexa decimal form but from 1.7version onwards we can specify literal value even in binary form also allowed digits are 0 and 1
+literal value should be prefixed with 0b or 0B .
+Example:
+--------
+
+int x = 0B1111;
+System.out.println(x); // 15
+
+2) usage of underscore symbol in numeric literals from 1.7 onwards we can use underscore between digits of numeric literal
+
+Example:
+
+double d = 123456.789;
+
+double d = 1_23_456.7_8_9;
+
+(or)
+
+double d = 123_456.7_8_9;
+
+The advantage of this approach is readability of the code will be improved.
+At the time of compilation these underscore symbols will be removed automatically hence after compilation
+the above lines will become
+
+double d = 123456.789;
+
+we can use more than one underscore symbol also between digits
+
+double d = 1__23_4_5__6.7_8_9; valid
+double d = 1___2__3_4_5_6.7_8_9; valid
+
+we can use underscore symbol only between digits if we are using any else we will get compile time error.
+
+Example:
+--------
+double d = _1_23_456.7_8_9; invalid
+double d = 1_23_456_.7_8_9; invalid
+double d = 1_23_456.7_8_9_; invalid
+
+Note: 8 byte long value we can asign to 4 byte float variable because both are following different memory 
+representation internally
+
+float f = 10L;
+System.out.println(f); // 10.0
+
+
+
+
+
+
+
+
+
+
+
